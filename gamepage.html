@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Type or die</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/interface.js"></script>
+    </head>
+
+    <body>
+        <section id="always">
+            <h1>TYPE OR DIE!</h1>
+        </section>
+
+        <section id="open">
+            <p>In this game, you shall type words as fast as you can.
+            <br>You will be given a specific amount of time to type each word.
+            <br>You can choose what speed you would like to play the game at:</p>
+            <input id="speed" name="speed" type="number" min="0" max="15" step="1" oninput="check(event);">
+            <button id="start" title="Ctrl + Enter">START NEW GAME (Ctrl + Enter)</button>
+            <button id="help1" class="help">Help</button>
+        </section>
+
+        <section id="gamepage">
+            <p>As words appear, type them below:</p>
+            <textarea id="typed"></textarea>
+            <br>
+            <button id="actualstart">START</button>
+            <button id="pause" title="Ctrl + .">PAUSE (Ctrl + .)</button>
+            <button id="resume" title="Ctrl + ;">RESUME (Ctrl + ;)</button>
+            <p id="word"></p>
+            <div id="timebar">
+                <div id="progress"></div>
+            </div>
+            <div id="fc">
+                <div id="track">
+                    <p id="timebox">Time: <span id="time"></span></p>
+                    <p id="scorebox">Score: <span id="score"></span></p>
+                </div>
+                <div id="buttons">
+                    <button id="reset">Stop Game</button>
+                    <button id="startNew1" class="startNew">Start New Game</button>
+                    <button id="help2" class="help">Help</button>
+                </div>
+            </div>
+            <div id="speedbuttons">
+                <button id="increaseSpeed" title="Ctrl + Alt + K">Increase Speed</button>
+                <button id="decreaseSpeed" title="Ctrl + Alt + M">Decrease Speed</button>
+                <br>
+                Current speed is: <span id="speeddisplay"></span>
+            </div>
+        </section>
+
+        <section id="helppage">
+            <p>In this game, you shall type words as fast as you can.
+            You will be given a specific amount of time to type each word
+            depending on the speed you choose in the starting prompt.</p>
+            <p>For every correctly typed word, you will get 1 point and
+            for every word missed, you will lose 0.25 points.</p>
+            <details id="shortcutmenu">
+                <summary>Shortcuts</summary>
+                <details>
+                    <summary>Open Page</summary>
+                    Starting a new game: Ctrl + Enter
+                </details>
+                <details>
+                    <summary>Game Page</summary>
+                    Pausing game: Ctrl + .<br>
+                    Resuming game: Ctrl + ;<br>
+                    Increasing game speed: Ctrl + Alt + K<br>
+                    Decreasing game speed: Ctrl + Alt + M
+                </details>
+            </details>
+            <button id="back">Back</button>
+        </section>
+
+        <section id="end">
+            <p>Words typed at each speed</p>
+            <details>
+                <summary>Legend</summary>
+                S = Speed<br>
+                M = Number of missed words<br>
+                G = Number of good (successful) words
+            </details>
+            <div id="chart"></div>
+            <div id="endbox">
+                <p id="totalwords">Total words: <span id="total"></span></p>
+                <p id="successbox">Successfully typed: <span id="successful"></span></p>
+                <p id="finalscorebox">FINAL SCORE: <span id="finalscore"></span></p>
+            </div>
+            <button id="startNew2" class="startNew">Start New Game</button>
+        </section>
+    </body>
+</html>

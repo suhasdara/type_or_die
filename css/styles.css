@@ -1,0 +1,229 @@
+html {
+    background-image: url(assets/keyboard.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    color: black;
+}
+
+body {
+    background-color: beige;
+    margin: 0rem 4vw;
+    text-align: center;
+    min-height: calc(100vh - 4rem);
+}
+
+section:not(#always) {
+    margin: 4rem auto;
+    padding: 1rem;
+    border: 4px solid grey;
+    border-radius: 30px;
+    box-shadow: 5px 5px 10px black;
+    width: 60%;
+}
+
+/* Header */
+
+#always {
+    margin: 2rem 0rem;
+    border-top: 5px dashed forestgreen;
+    border-bottom: 5px dashed forestgreen;
+    box-shadow: 0px 5px 10px black;
+}
+
+h1 {
+    font-family: cursive;
+    margin: 1rem auto;
+    padding: 1rem;
+    font-size: 4vh;
+    width: 60%;
+}
+
+/* Generally open page */
+
+#open {
+    line-height: 1.5em;
+}
+
+#speed {
+    margin-bottom: 1rem;
+    width: 20%;
+    min-width: 120px;
+}
+
+button {
+    background-color: floralwhite;
+    border-radius: 3px;
+    border: 1px outset black;
+    padding: 5px 10px;
+    opacity: 80%;
+}
+
+#open p {
+    padding: 1em;
+}
+
+.help {
+    background-color: lightgoldenrodyellow;
+}
+
+.startNew {
+    background-color: burlywood;
+}
+
+button:hover {
+    border-style: inset;
+    cursor: pointer;
+    opacity: 100%;
+}
+
+#gamepage, #end, #helppage, #pause, #resume {
+    display: none;
+}
+
+/* Helppage */
+#shortcutmenu {
+    margin: 1vh;
+    background-color: bisque;
+    text-align: initial;
+}
+
+/* Gamepage */
+
+#typed, #word {
+    width: 85%;
+    min-height: 40px;
+    height: 4vw;
+    margin: 1rem auto;
+    border: 2px solid turquoise;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#typed {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+
+#word {
+    font-size: 3.5vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+#timebar {
+    width: 85%;
+    height: 20px;
+    margin: 1rem auto;
+    background-color: darkkhaki;
+}
+
+#progress {
+    margin: 0rem;
+    width: 0.05%;
+    background-color: orangered;
+    height: 20px;
+}
+
+#track, #buttons, #fc {
+    display: flex;
+}
+
+#track, #fc {
+    flex-flow: row wrap;
+}
+
+#track > * {
+    margin: 1vw;
+    padding: 2vw;
+}
+
+span {
+    font-weight: bolder;
+    color: red;
+}
+
+#buttons > * {
+    margin: 0.5em;
+}
+
+#fc {
+    justify-content: center;
+}
+
+#track {
+    min-width: 70%;
+    justify-content: start;
+}
+
+#buttons {
+    flex-flow: column wrap;
+    min-width: 15%;
+}
+
+#timebox, #scorebox {
+    flex: 1;
+    border: 2px solid lightseagreen;
+    border-radius: 5px;
+}
+
+/* End page */
+
+#chart {
+    display: flex;
+    flex-flow: row;
+    min-height: 100px;
+    height: 20vh;
+    border: 1px solid gainsboro;
+}
+
+#chart > div {
+    position: relative;
+    margin: 0rem;
+    flex: 1;
+    border: 1px solid black;
+}
+
+#chart > div > p {
+    font-size: calc(1vh + 1vw);
+    position: absolute;
+    margin: 0rem;
+    padding: 0rem;
+    right: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#chart > div > .top {
+    margin: 0rem;
+    height: 0%;
+}
+
+#chart > div > .middle {
+    margin: 0rem;
+    height: 0%;
+    background-color: red;
+}
+
+#chart > div > .bottom {
+    margin: 0rem;
+    height: 0%;
+    background-color: green;
+}
+
+#endbox {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#endbox > *, #end > p {
+    font-size: 3vh;
+    font-family: fantasy;
+    margin: 15px;
+}
+
+#end > details {
+    color: green;
+    text-align: left;
+    margin: 0em 2em;
+}
