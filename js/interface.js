@@ -37,6 +37,7 @@ const SPEED_FACTOR = 3;
 const TIME = 60.0;
 const SUCCESS = 1;
 const FAILED = 0.25;
+const COLOR_UPDATE = 5.1;
 
 var words = [];
 var numWordsSpeeds = [];
@@ -48,6 +49,9 @@ var score = 0;
 var success = 0;
 var total = 0;
 var barWidth = 0;
+var barRed = 0;
+var barGreen = 255;
+var barBlue = 0;
 var timer;
 var intervalTimer;
 
@@ -131,6 +135,10 @@ function loadNewWord() {
 
 function changeProgress() {
     clearInterval(intervalTimer);
+    barRed = 0;
+    barGreen = 255;
+    barBlue = 0;
+    progress.style.backgroundColor = "rgb(" + barRed + "," + barGreen + "," + barBlue + ")";
     intervalTimer = setInterval(changeBar, speed);
     width = 0;
 }
@@ -143,18 +151,16 @@ function changeBar() {
         total++;
         (numWordsSpeeds[numSpeed]).missed++;
         scorebox.innerHTML = score;
-        progress.style.backgroundColor = "#00FF00";
         loadNewWord();
     } else {
         width++;
         progress.style.width = width + "%";
-        if(width === 25) {
-            progress.style.backgroundColor = "#7FFF00";
-        } else if(width === 50) {
-            progress.style.backgroundColor = "#FFFF00";
-        } else if(width === 75) {
-            progress.style.backgroundColor = "#FF0000";
+        if(width < 50) {
+            barRed += COLOR_UPDATE;
+        } else {
+            barGreen -= COLOR_UPDATE;
         }
+        progress.style.backgroundColor = "rgb(" + barRed + "," + barGreen + "," + barBlue + ")";
     }
 }
 
@@ -209,6 +215,8 @@ function check(evt) {
         evt.target.value = 15;
     } else if(evt.target.value % 1 !== 0) {
         evt.target.value = Math.floor(evt.target.value);
+    } else {
+        evt.target.value = parseInt(evt.target.value, 10);
     }
 }
 
@@ -397,7 +405,10 @@ function resetValues() {
     pause.style.display = "none";
     resume.style.display = "none";
     textbox.style.backgroundColor = "white";
-    progress.style.backgroundColor = "#00FF00";
+    barRed = 0;
+    barGreen = 255;
+    barBlue = 0;
+    progress.style.backgroundColor = "rgb(" + barRed + "," + barGreen + "," + barBlue + ")";
 }
 
 function addWords() {
