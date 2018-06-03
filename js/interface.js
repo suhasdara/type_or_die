@@ -143,17 +143,17 @@ function changeBar() {
         total++;
         (numWordsSpeeds[numSpeed]).missed++;
         scorebox.innerHTML = score;
-        progress.style.backgroundColor = "green";
+        progress.style.backgroundColor = "#00FF00";
         loadNewWord();
     } else {
         width++;
         progress.style.width = width + "%";
         if(width === 25) {
-            progress.style.backgroundColor = "lightgreen";
+            progress.style.backgroundColor = "#7FFF00";
         } else if(width === 50) {
-            progress.style.backgroundColor = "orangered";
+            progress.style.backgroundColor = "#FFFF00";
         } else if(width === 75) {
-            progress.style.backgroundColor = "red";
+            progress.style.backgroundColor = "#FF0000";
         }
     }
 }
@@ -397,7 +397,7 @@ function resetValues() {
     pause.style.display = "none";
     resume.style.display = "none";
     textbox.style.backgroundColor = "white";
-    progress.style.backgroundColor = "green";
+    progress.style.backgroundColor = "#00FF00";
 }
 
 function addWords() {
