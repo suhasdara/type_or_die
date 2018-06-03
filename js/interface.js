@@ -143,10 +143,18 @@ function changeBar() {
         total++;
         (numWordsSpeeds[numSpeed]).missed++;
         scorebox.innerHTML = score;
+        progress.style.backgroundColor = "green";
         loadNewWord();
     } else {
         width++;
         progress.style.width = width + "%";
+        if(width === 25) {
+            progress.style.backgroundColor = "lightgreen";
+        } else if(width === 50) {
+            progress.style.backgroundColor = "orangered";
+        } else if(width === 75) {
+            progress.style.backgroundColor = "red";
+        }
     }
 }
 
@@ -389,6 +397,7 @@ function resetValues() {
     pause.style.display = "none";
     resume.style.display = "none";
     textbox.style.backgroundColor = "white";
+    progress.style.backgroundColor = "green";
 }
 
 function addWords() {
