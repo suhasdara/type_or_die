@@ -347,6 +347,7 @@ function startSetup(evt) {
     timebox.innerHTML = TIME;
     scorebox.innerHTML = "0";
     textbox.readOnly = true;
+    backgroundMusic.play();
 
     //using == instead of === as numspeed is initially a string
     if(numSpeed == 15) {
