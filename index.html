@@ -4,10 +4,13 @@
         <title>Type or die</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.min.js"></script>
         <script src="js/interface.js"></script>
     </head>
 
     <body>
+        <audio id="backgroundMusic" src="js/assets/background.mp3" autoplay loop></audio>
+
         <section id="always">
             <h1>TYPE OR DIE!</h1>
         </section>
@@ -19,9 +22,18 @@
             <input id="speed" name="speed" type="number" min="0" max="15" step="1" oninput="check(event);">
             <button id="start" title="Ctrl + Enter">START NEW GAME (Ctrl + Enter)</button>
             <button id="help1" class="help">Help</button>
+            <br>
+            <button class="sfxDisable">Disable sfx</button>
+            <button class="sfxEnable">Enable sfx</button>
+            <button class="musicDisable">Disable music</button>
+            <button class="musicEnable">Enable music</button>
+            <br>
+            <p id="credit1">Music by Eric Matyas: <a href="http://www.soundimage.org">www.soundimage.org</a></p>
         </section>
 
         <section id="gamepage">
+            <audio id="correctSound" src="js/assets/correct.mp3"></audio>
+            <audio id="wrongSound" src="js/assets/wrong.mp3"></audio>
             <p>As words appear, type them below:</p>
             <textarea id="typed" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
             <br>
@@ -42,6 +54,12 @@
                     <button id="startNew1" class="startNew">Start New Game</button>
                     <button id="help2" class="help">Help</button>
                 </div>
+            </div>
+            <div id="speedbuttons">
+                <button class="sfxDisable">Disable sfx</button>
+                <button class="sfxEnable">Enable sfx</button>
+                <button class="musicDisable">Disable music</button>
+                <button class="musicEnable">Enable music</button>
             </div>
             <div id="speedbuttons">
                 <button id="increaseSpeed" title="Ctrl + Alt + K">Increase Speed</button>
@@ -89,6 +107,13 @@
                 <p id="finalscorebox">FINAL SCORE: <span id="finalscore"></span></p>
             </div>
             <button id="startNew2" class="startNew">Start New Game</button>
+            <br>
+            <button class="sfxDisable">Disable sfx</button>
+            <button class="sfxEnable">Enable sfx</button>
+            <button class="musicDisable">Disable music</button>
+            <button class="musicEnable">Enable music</button>
+            <br>
+            <p id="credit2">Music by Eric Matyas: <a href="http://www.soundimage.org">www.soundimage.org</a></p>
         </section>
     </body>
 </html>

@@ -55,6 +55,15 @@ var barBlue = 0;
 var timer;
 var intervalTimer;
 
+var backgroundMusic;
+var correctSound;
+var wrongSound;
+var allSfxDisabled;
+var allSfxEnabled;
+var allMusicDisabled;
+var allMusicEnabled;
+var sfxDisabled = false;
+
 window.onload = init;
 
 function init() {
@@ -85,6 +94,14 @@ function init() {
     successbox = document.querySelector("#successful");
     totalbox = document.querySelector("#total");
     finalscorebox = document.querySelector("#finalscore");
+    allSfxDisabled = document.querySelectorAll(".sfxDisable");
+    allSfxEnabled = document.querySelectorAll(".sfxEnable");
+    allMusicDisabled = document.querySelectorAll(".musicDisable");
+    allMusicEnabled = document.querySelectorAll(".musicEnable");
+
+    backgroundMusic = document.querySelector("#backgroundMusic");
+    correctSound = document.querySelector("#correctSound");
+    wrongSound = document.querySelector("#wrongSound");
 
     speedIn.value = 8;
     speedIn.focus();
@@ -104,6 +121,11 @@ function init() {
     increaseS.addEventListener("click", increaseSpeed);
     decreaseS.addEventListener("click", decreaseSpeed);
     textbox.addEventListener("keyup", checkWord);
+
+    allSfxDisabled.forEach(function(a){a.addEventListener('click', disableSfx);});
+    allSfxEnabled.forEach(function(a){a.addEventListener('click', enableSfx);});
+    allMusicDisabled.forEach(function(a){a.addEventListener('click', disableMusic);});
+    allMusicEnabled.forEach(function(a){a.addEventListener('click', enableMusic);});
 }
 
 function checkWord(evt) {
@@ -116,6 +138,7 @@ function checkWord(evt) {
         total++;
         (numWordsSpeeds[numSpeed]).success++;
         scorebox.innerHTML = score;
+        if(!sfxDisabled) {correctSound.play();}
         loadNewWord();
     } else if(textbox.value === wordbox.innerHTML.substring(0, currentTextLen)) {
         textbox.style.backgroundColor = "lightgreen";
@@ -151,6 +174,7 @@ function changeBar() {
         total++;
         (numWordsSpeeds[numSpeed]).missed++;
         scorebox.innerHTML = score;
+        if(!sfxDisabled) {wrongSound.play();}
         loadNewWord();
     } else {
         width++;
@@ -258,6 +282,59 @@ function decreaseSpeed(evt) {
         }
         speedDisplay.innerHTML = numSpeed;
     }
+}
+
+function disableMusic(evt) {
+    if(started) {
+        textbox.focus();
+    } else {
+        actualstart.focus();
+    }
+
+    backgroundMusic.pause()
+    backgroundMusic.autoplay = "false";
+    backgroundMusic.loop = "false";
+    backgroundMusic.currentTime = 0;
+    allMusicDisabled.forEach(function(a){a.style.display = "none"});
+    allMusicEnabled.forEach(function(a){a.style.display = "initial"});
+}
+
+function disableSfx(evt) {
+    if(started) {
+        textbox.focus();
+    } else {
+        actualstart.focus();
+    }
+
+    sfxDisabled = true;
+    allSfxDisabled.forEach(function(a){a.style.display = "none"});
+    allSfxEnabled.forEach(function(a){a.style.display = "initial"});
+}
+
+function enableMusic(evt) {
+    if(started) {
+        textbox.focus();
+    } else {
+        actualstart.focus();
+    }
+
+    backgroundMusic.play()
+    backgroundMusic.autoplay = "true";
+    backgroundMusic.loop = "true";
+    allMusicDisabled.forEach(function(a){a.style.display = "initial"});
+    allMusicEnabled.forEach(function(a){a.style.display = "none"});
+}
+
+function enableSfx(evt) {
+    if(started) {
+        textbox.focus();
+    } else {
+        actualstart.focus();
+    }
+
+    sfxDisabled = false;
+    allSfxDisabled.forEach(function(a){a.style.display = "initial"});
+    allSfxEnabled.forEach(function(a){a.style.display = "none"});
 }
 
 function startSetup(evt) {
