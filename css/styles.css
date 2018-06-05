@@ -95,6 +95,10 @@ button:hover {
     text-align: initial;
 }
 
+summary:hover {
+    cursor: pointer;
+}
+
 /* Gamepage */
 
 #typed, #word {

@@ -63,6 +63,7 @@ var allSfxEnabled;
 var allMusicDisabled;
 var allMusicEnabled;
 var sfxDisabled = false;
+var musicDisabled = false;
 
 window.onload = init;
 
@@ -291,6 +292,7 @@ function disableMusic(evt) {
         actualstart.focus();
     }
 
+    musicDisabled = true;
     backgroundMusic.pause()
     backgroundMusic.autoplay = "false";
     backgroundMusic.loop = "false";
@@ -318,6 +320,7 @@ function enableMusic(evt) {
         actualstart.focus();
     }
 
+    musicDisabled = false;
     backgroundMusic.play()
     backgroundMusic.autoplay = "true";
     backgroundMusic.loop = "true";
@@ -347,7 +350,9 @@ function startSetup(evt) {
     timebox.innerHTML = TIME;
     scorebox.innerHTML = "0";
     textbox.readOnly = true;
-    backgroundMusic.play();
+    if(!musicDisabled) {
+        backgroundMusic.play();
+    }
 
     //using == instead of === as numspeed is initially a string
     if(numSpeed == 15) {
